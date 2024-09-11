@@ -9,7 +9,7 @@ import Dashboard from "./Dashboard";
 
 export function ChatDashboard() {
   return (
-    <Tabs defaultValue="messages">
+    <Tabs defaultValue="dashboard">
       <div className="flex min-h-screen h-full bg-gray-100 dark:bg-gray-900 w-full">
         <aside className="w-64 bg-white dark:bg-gray-800 p-4">
           <div className="flex justify-between items-center flex-col">

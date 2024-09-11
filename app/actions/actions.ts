@@ -50,10 +50,11 @@ export async function whatsappStats() {
       recipientNames[message.userId] = message.userName;
 
       const date = new Date(message.sent_at);
-      const monthName = date.toLocaleString('default', { month: 'long' });
+      const localDate = new Date(date.getTime() - date.getTimezoneOffset() * 60000);
+      const monthName = localDate.toLocaleString('default', { month: 'long' });
       messagesByMonth[monthName] = (messagesByMonth[monthName] || 0) + 1;
 
-      const hour = date.getHours(); // Get the hour (0-23)
+      const hour = localDate.getHours(); // Get the hour (0-23)
       messagesByHour[hour] = (messagesByHour[hour] || 0) + 1;
     });
 

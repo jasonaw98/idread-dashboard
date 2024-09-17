@@ -1,10 +1,10 @@
-import { ChatDashboard } from "@/components/chat-dashboard";
+import LandingPage from "@/components/LandingPage";
 
 export default async function Home() {
 
   return (
     <main className="h-screen">
-      <ChatDashboard />
+      <LandingPage />
     </main>
   );
 }

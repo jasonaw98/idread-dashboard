@@ -1,11 +1,12 @@
 import { Button } from "@/components/ui/button";
-import { BarChart, Calendar, MessageSquare, Users } from "lucide-react";
+import { BarChart, Calendar, HomeIcon, MessageSquare, Users } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import UserTable from "./UserTable";
 import OldMessages from "./OldMessages";
 import NewMessages from "./NewMessages";
 import OldData from "./OldData";
 import Dashboard from "./Dashboard";
+import Link from "next/link";
 
 export function ChatDashboard() {
   return (
@@ -47,6 +48,12 @@ export function ChatDashboard() {
                   Users
                 </Button>
               </TabsTrigger>
+              <Link href="/" className="w-full hover:bg-gray-100 justify-start">
+                <Button variant="ghost" className="w-full justify-start">
+                  <HomeIcon className="mr-2 h-4 w-4" />
+                  Landing Page
+                </Button>
+              </Link>
               <TabsTrigger
                 value="olddata"
                 className="w-full hover:bg-gray-100 justify-start"

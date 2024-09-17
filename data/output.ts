@@ -17539,3 +17539,42 @@ export const cleanedData = [
         "OutgoingTime": "2024-09-07T17:29:42.970000"
     }
 ]
+
+export const mouData = [
+    { name: "KEMENTERIAN KEWANGAN MALAYSIA (MOF)", scrape: true },
+    { name: "KEMENTERIAN DALAM NEGERI (KDN)", scrape: true },
+    { name: "KEMENTERIAN DIGITAL (KD)", scrape: true },
+    { name: "KEMENTERIAN SUMBER MANUSIA (KESUMA)", scrape: false },
+    {
+      name: "KEMENTERIAN PERTANIAN DAN KETERJAMINAN MAKANAN (KPKM)",
+      scrape: false,
+    },
+    {
+      name: "KEMENTERIAN PEMBANGUNAN USAHAWAN DAN KOPERASI (KUSKOP)",
+      scrape: false,
+    },
+    {
+      name: "KEMENTERIAN PELABURAN, PERDAGANGAN DAN INDUSTRI (MITI)",
+      scrape: false,
+    },
+    {
+      name: "KEMENTERIAN SUMBER ASLI DAN KELESTARIAN ALAM (NRES)",
+      scrape: false,
+    },
+    {
+      name: "KEMENTERIAN PERALIHAN TENAGA DAN TRANSFORMASI AIR (PETRA)",
+      scrape: false,
+    },
+    { name: "KEMENTERIAN LUAR NEGERI (KLN)", scrape: false },
+    { name: "JABATAN PERDANA MENTERI (JPM)", scrape: false },
+    { name: "KEMENTERIAN PELANCONGAN, SENI DAN BUDAYA (MOTAC)", scrape: false },
+    { name: "KEMENTERIAN PENGANGKUTAN (MOT)", scrape: false },
+    {
+      name: "KEMENTERIAN PEMBANGUNAN WANITA, KELUARGA DAN MASYARAKAT (KPWKM)",
+      scrape: false,
+    },
+    { name: "KEMENTERIAN PERPADUAN NEGARA (KPN)", scrape: false },
+    { name: "KEMENTERIAN KESIHATAN MALAYSIA (KKM)", scrape: false },
+    { name: "KEMENTERIAN PERLADANGAN DAN KOMODITI (KPK)", scrape: false },
+  ];
+  

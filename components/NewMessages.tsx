@@ -122,8 +122,8 @@ const NewMessages = () => {
                     handleCheckboxChange(message, e.target.checked)
                   }
                 />
-                <p className="text-gray-700 ">{message.userId}</p>
-                <p className="text-gray-700 ">{message.userName}</p>
+                <p className="text-gray-700 ">{(message.userId).toString().slice(0, 5) + '*****'}</p>
+                <p className="text-gray-700 ">{message.userName.toString().slice(0, 3) + '*****'}</p>
                 <p className="text-gray-700 ">
                   {new Date(message.sent_at).toLocaleString("en-US", {
                     hour12: true,

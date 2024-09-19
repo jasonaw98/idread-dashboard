@@ -132,7 +132,9 @@ const OldData = () => {
             <tbody>
               {recipientMessageCountArray.slice(1, 10).map((user, index) => (
                 <tr key={index} className="border-t">
-                  <td className="py-2">{user.key}</td>
+                  <td className="py-2">
+                    {user.key.toString().slice(0, 5) + "*****"}
+                  </td>
                   <td className="py-2">{user.value}</td>
                 </tr>
               ))}

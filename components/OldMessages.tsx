@@ -122,7 +122,7 @@ const OldMessages = () => {
                   handleCheckboxChange(message, e.target.checked)
                 }
               />
-              <p className="text-gray-700 ">{message.Account}</p>
+              <p className="text-gray-700 ">{(message.Account).toString().slice(0, 5) + '*****'}</p>
               <p className="text-gray-700 ">
               {new Date(message.IncomingTime).toLocaleString("en-US", {
                     hour12: true,

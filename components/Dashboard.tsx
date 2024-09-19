@@ -131,8 +131,8 @@ const Dashboard = async () => {
               {users &&
                 users.slice(0, 10).map((user, index) => (
                   <tr key={index} className="border-t">
-                    <td className="py-2">{user.key}</td>
-                    <td className="py-2">{user.name}</td>
+                     <td className="py-2">{(user.key).toString().slice(0, 5) + '*****'}</td>
+                     <td className="py-2">{(user.name).toString().slice(0, 3) + '*****'}</td>
                     <td className="py-2">{user.value}</td>
                   </tr>
                 ))}

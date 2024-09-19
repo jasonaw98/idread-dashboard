@@ -13,7 +13,7 @@ interface StickyHoverImageProps {
 
 function StickyHoverImage({ src, alt, width, height }: StickyHoverImageProps) {
   return (
-    <div className="fixed right-20 top-1/2 transform -translate-y-1/2 z-50 transition-all duration-300 ease-in-out hover:scale-110 scale-100">
+    <div className="fixed right-10 lg:right-20 top-1/2 transform -translate-y-1/2 z-50 transition-all duration-300 ease-in-out hover:scale-110 scale-50">
       <div className="flex justify-center font-bold text-lg">
         Chat on
         <p className="text-green-400"> &nbsp;WhatsApp</p>
@@ -36,13 +36,13 @@ function StickyHoverImage({ src, alt, width, height }: StickyHoverImageProps) {
 
 const LandingPage = () => {
   return (
-    <div className="flex flex-col items-center h-screen w-full">
+    <div className="flex flex-col items-center h-screen w-full text-center">
       <header className="bg-gray-800 text-white w-full">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center space-x-2">
             <span className="text-2xl font-bold">AIDA</span>
           </div>
-          <nav className="hidden md:flex space-x-4 font-bold">
+          <nav className="flex space-x-4 font-bold">
             <Link href="/" className="hover:underline">
               Home
             </Link>
@@ -61,14 +61,14 @@ const LandingPage = () => {
       </header>
 
       <div className="flex flex-col items-center py-20 bg-gray-100 w-full gap-8">
-        <div className="text-5xl font-bold">JABATAN DIGITAL NEGARA</div>
-        <div className="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-violet-500 py-2">
+        <div className="text-2xl lg:text-5xl font-bold">JABATAN DIGITAL NEGARA</div>
+        <div className="text-2xl lg:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-violet-500 py-2">
           INTRODUCING AIDA
         </div>
-        <div className="text-5xl font-bold text-neutral-800">
+        <div className="text-2xl lg:text-5xl font-bold text-neutral-800">
           Artificial Intelligence Digital Assistant
         </div>
-        <div className="text-4xl font-bold">Your Digital Counter</div>
+        <div className="text-xl lg:text-4xl font-bold">Your Digital Counter</div>
       </div>
 
       <StickyHoverImage
@@ -79,7 +79,7 @@ const LandingPage = () => {
       />
 
       <div className="flex flex-col items-center w-full mt-8 max-w-7xl">
-        <div className="text-3xl font-bold">Model trained on Data from </div>
+        <div className="text-xl lg:text-3xl font-bold">Model trained on Data from </div>
         <div className="flex flex-wrap p-4 gap-4 justify-center font-semibold">
           {mouData.map((mou, index) => (
             <div key={index}>
@@ -153,12 +153,12 @@ const LandingPage = () => {
               <h3 className="text-lg font-semibold mb-4">
                 Contact Information
               </h3>
-              <p>ID READ SD. BHD.</p>
+              <p>VENUS ADVANCE TECHNOLOGY SDN. BHD.</p>
               <p>Sunway Nexis Biz Suite Block,</p>
               <p>C-16-05,Jln Pju 5/1, Kota Damansara,</p>
               <p>47810, Petaling Jaya,</p>
               <p>Selangor, Malaysia.</p>
-              <p>Email: admin@idread.com.my</p>
+              <p>Email: yow@venus.my</p>
             </div>
           </div>
           <div className="mt-8 pt-8 border-t border-gray-700 text-center">

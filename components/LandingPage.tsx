@@ -46,9 +46,9 @@ const LandingPage = () => {
             <Link href="/" className="hover:underline">
               Home
             </Link>
-            {/* <Link href="/dashboard" className="hover:underline">
+            <Link href="/dashboard" className="hover:underline">
               Dashboard
-            </Link> */}
+            </Link>
             <Link
               href="https://api.whatsapp.com/send?phone=60142889860"
               target="_blank"

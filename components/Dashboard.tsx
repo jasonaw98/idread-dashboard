@@ -9,6 +9,7 @@ import {
 import { whatsappStats } from "@/app/actions/actions";
 import { RealtimeMonthChartClient } from "./RealTimeMonthChart";
 import { RealtimeHourChartClient } from "./RealTimeHourChart";
+import { DeptChart } from "./DeptChart";
 
 const Dashboard = async () => {
   const stats = await whatsappStats();
@@ -111,35 +112,50 @@ const Dashboard = async () => {
         </Card>
       </div>
 
-      <Card>
-        <CardHeader>
-          <CardTitle>Top Active Users</CardTitle>
-          <CardDescription>
-            Users with the most messages in the selected time range
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <table className="w-full">
-            <thead>
-              <tr>
-                <th className="text-left font-semibold">User Id</th>
-                <th className="text-left font-semibold">User Name</th>
-                <th className="text-left font-semibold">Messages</th>
-              </tr>
-            </thead>
-            <tbody>
-              {users &&
-                users.slice(0, 10).map((user, index) => (
-                  <tr key={index} className="border-t">
-                     <td className="py-2">{(user.key).toString().slice(0, 5) + '*****'}</td>
-                     <td className="py-2">{(user.name).toString().slice(0, 3) + '*****'}</td>
-                    <td className="py-2">{user.value}</td>
-                  </tr>
-                ))}
-            </tbody>
-          </table>
-        </CardContent>
-      </Card>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+        <Card>
+          <CardHeader>
+            <CardTitle>Department Query</CardTitle>
+            <CardDescription>Total query of Department</CardDescription>
+          </CardHeader>
+          <CardContent className="h-[300px]">
+            <DeptChart />
+          </CardContent>
+        </Card>
+        <Card>
+          <CardHeader>
+            <CardTitle>Top Active Users</CardTitle>
+            <CardDescription>
+              Users with the most messages in the selected time range
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <table className="w-full">
+              <thead>
+                <tr>
+                  <th className="text-left font-semibold">User Id</th>
+                  <th className="text-left font-semibold">User Name</th>
+                  <th className="text-left font-semibold">Messages</th>
+                </tr>
+              </thead>
+              <tbody>
+                {users &&
+                  users.slice(0, 10).map((user, index) => (
+                    <tr key={index} className="border-t">
+                      <td className="py-2">
+                        {user.key.toString().slice(0, 5) + "*****"}
+                      </td>
+                      <td className="py-2">
+                        {user.name.toString().slice(0, 3) + "*****"}
+                      </td>
+                      <td className="py-2">{user.value}</td>
+                    </tr>
+                  ))}
+              </tbody>
+            </table>
+          </CardContent>
+        </Card>
+      </div>
     </main>
   );
 };

@@ -79,21 +79,17 @@ const NewMessages = () => {
 
   return (
     <div className="flex flex-1 flex-col p-8 overflow-auto w-full">
-      <header className="flex justify-between items-center mb-8">
-        <div className="flex items-center gap-8">
-          <h1 className="text-3xl font-bold">Messages</h1>
-          <button
-            onClick={() => fetch()}
-            className="group relative h-10 overflow-hidden rounded-md bg-blue-500 px-6 text-neutral-50 transition hover:bg-blue-600 font-semibold"
-          >
-            <span className="relative">
-              {loading ? "Loading..." : "Refresh"}
-            </span>
-          </button>
-        </div>
+      <header className="flex items-center mb-8 gap-8">
+        <h1 className="text-3xl font-bold">Messages</h1>
+        <button
+          onClick={() => fetch()}
+          className="group h-10 overflow-hidden rounded-md bg-blue-500 px-6 text-neutral-50 transition hover:bg-blue-600 font-semibold"
+        >
+          <span className="relative">{loading ? "Loading..." : "Refresh"}</span>
+        </button>
         <button
           onClick={() => ExportXlsx("Messages", "MessageExport")}
-          className="group relative h-12 overflow-hidden rounded-md bg-blue-500 px-6 text-neutral-50 transition hover:bg-blue-600 font-semibold"
+          className="group h-10 overflow-hidden rounded-md bg-green-500 px-6 text-neutral-50 transition hover:bg-blue-600 font-semibold"
         >
           <span className="relative">{loading ? "Loading..." : "Export"}</span>
         </button>
@@ -122,8 +118,12 @@ const NewMessages = () => {
                     handleCheckboxChange(message, e.target.checked)
                   }
                 />
-                <p className="text-gray-700 ">{(message.userId).toString().slice(0, 5) + '*****'}</p>
-                <p className="text-gray-700 ">{message.userName.toString().slice(0, 3) + '*****'}</p>
+                <p className="text-gray-700 ">
+                  {message.userId.toString().slice(0, 5) + "*****"}
+                </p>
+                <p className="text-gray-700 ">
+                  {message.userName.toString().slice(0, 3) + "*****"}
+                </p>
                 <p className="text-gray-700 ">
                   {new Date(message.sent_at).toLocaleString("en-US", {
                     hour12: true,

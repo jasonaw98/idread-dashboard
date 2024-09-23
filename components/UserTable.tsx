@@ -1,8 +1,11 @@
 import { whatsappStats } from "@/app/actions/actions";
+import { auth } from "@clerk/nextjs/server";
 
 export default async function UserTable() {
   const stats = await whatsappStats();
   const users = stats?.recipientMessageCountArray || [];
+  const { orgRole } = auth();
+  const isAdmin = orgRole === process.env.NEXT_ISADMIN;
 
   return (
     <div className="flex flex-1 flex-col p-8 overflow-auto w-full h-full">
@@ -22,8 +25,16 @@ export default async function UserTable() {
             {users &&
               users.map((user, index) => (
                 <tr key={index} className="border-t">
-                  <td className="py-2">{(user.key).toString().slice(0, 5) + '*****'}</td>
-                  <td className="py-2">{(user.name).toString().slice(0, 3) + '*****'}</td>
+                  <td className="py-2">
+                    {isAdmin
+                      ? user.key
+                      : user.key.toString().slice(0, 5) + "*****"}
+                  </td>
+                  <td className="py-2">
+                    {isAdmin
+                      ? user.name
+                      : user.name.toString().slice(0, 3) + "*****"}
+                  </td>
                   <td className="py-2">{user.value}</td>
                 </tr>
               ))}

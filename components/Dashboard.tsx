@@ -19,41 +19,42 @@ const Dashboard = async () => {
   const messagesByMonth = stats?.messagesByMonth || {};
   const messagesByHour = stats?.messagesByHour || {};
 
-  const chartData = [
-    { month: "May", messages: messagesByMonth.May || 0 },
-    { month: "June", messages: messagesByMonth.June || 0 },
-    { month: "July", messages: messagesByMonth.July || 0 },
-    { month: "Aug", messages: messagesByMonth.August || 0 },
-    { month: "Sept", messages: messagesByMonth.September || 0 },
+  const currentDate = new Date();
+  const currentMonthIndex = currentDate.getMonth();
+  const monthNames = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
   ];
+
+  const chartData = [];
+  for (let i = 0; i < 5; i++) {
+    const monthIndex = (currentMonthIndex - i + 12) % 12;
+    chartData.unshift({
+      month: monthNames[monthIndex],
+      messages: messagesByMonth[monthNames[monthIndex]] || 0,
+    });
+  }
 
   const hourChartData = Array.from({ length: 24 }, (_, i) => ({
     hour: i,
     messages: messagesByHour[i] || 0,
   }));
+  
   return (
     <main className="flex-1 p-8 overflow-auto">
       <header className="flex justify-between items-center mb-8">
         <h1 className="text-3xl font-bold">Dashboard</h1>
       </header>
-
-      {/* Time range selector */}
-      {/* <div className="mb-8">
-              <Select
-                value={selectedTimeRange}
-                onValueChange={setSelectedTimeRange}
-              >
-                <SelectTrigger className="w-[180px]">
-                  <SelectValue placeholder="Select time range" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="24h">Last 24 hours</SelectItem>
-                  <SelectItem value="7d">Last 7 days</SelectItem>
-                  <SelectItem value="30d">Last 30 days</SelectItem>
-                  <SelectItem value="90d">Last 90 days</SelectItem>
-                </SelectContent>
-              </Select>
-            </div> */}
 
       {/* Metrics */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">

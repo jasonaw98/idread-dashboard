@@ -1,7 +1,9 @@
 "use client";
-import { whatsappData } from "@/app/actions/actions";
+import { searchFilter, whatsappData } from "@/app/actions/actions";
 import React, { useCallback, useEffect, useState } from "react";
 import * as XLSX from "xlsx";
+import { useDebouncedCallback } from "use-debounce";
+import { MagnifyingGlassIcon } from "@radix-ui/react-icons";
 
 interface Message {
   userId: string;
@@ -16,6 +18,39 @@ const NewMessages = () => {
   const [data, setData] = useState<Message[] | undefined>([]);
   const [selectedItems, setSelectedItems] = useState<Message[]>([]);
   const [loading, setLoading] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [searching, setSearching] = useState(false)
+  const pageSize = 6;
+
+  const Search = () => {
+    const handleSearch = useDebouncedCallback((query: string) => {
+      const search = async () => {
+        setSearching(true);
+        const text = await searchFilter(query);
+        setLoading(true);
+        setData(text);
+        setLoading(false);
+      };
+
+      search();
+    }, 500);
+
+    return (
+      <div className="relative flex flex-1 max-w-sm">
+        <label htmlFor="search" className="sr-only">
+          Search
+        </label>
+        <input
+          className="peer block w-full rounded-md border border-gray-200 py-[9px] pl-10 text-sm outline-2 placeholder:text-gray-500"
+          placeholder="Search"
+          onChange={(e) => {
+            handleSearch(e.target.value);
+          }}
+        />
+        <MagnifyingGlassIcon className="absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-gray-900" />
+      </div>
+    );
+  };
 
   const handleCheckboxChange = useCallback(
     (message: Message, isChecked: boolean) => {
@@ -66,23 +101,33 @@ const NewMessages = () => {
     }
   };
 
-  const fetch = async () => {
+  const fetch = async (page: number) => {
     setLoading(true);
-    const data = await whatsappData();
+    const start = (page - 1) * pageSize;
+    const end = start + pageSize - 1;
+    const data = await whatsappData(start, end);
     setData(data);
     setLoading(false);
   };
 
   useEffect(() => {
-    fetch();
-  }, []);
+    fetch(currentPage);
+  }, [currentPage]);
+
+  const handleNextPage = () => {
+    setCurrentPage((prev) => prev + 1);
+  };
+
+  const handlePrevPage = () => {
+    setCurrentPage((prev) => Math.max(prev - 1, 1));
+  };
 
   return (
     <div className="flex flex-1 flex-col p-8 overflow-auto w-full">
       <header className="flex items-center mb-8 gap-8">
         <h1 className="text-3xl font-bold">Messages</h1>
         <button
-          onClick={() => fetch()}
+          onClick={() => fetch(currentPage)}
           className="group h-10 overflow-hidden rounded-md bg-blue-500 px-6 text-neutral-50 transition hover:bg-blue-600 font-semibold"
         >
           <span className="relative">{loading ? "Loading..." : "Refresh"}</span>
@@ -93,6 +138,7 @@ const NewMessages = () => {
         >
           <span className="relative">{loading ? "Loading..." : "Export"}</span>
         </button>
+        <Search />
       </header>
       <div className="bg-white rounded-xl p-4 shadow w-full flex flex-col">
         <div className="grid grid-cols-[0.2fr_0.6fr_1fr_1fr_2fr_2fr_1fr] gap-4 px-4">
@@ -129,8 +175,10 @@ const NewMessages = () => {
                     hour12: true,
                   })}
                 </p>
-                <p className="text-gray-700 ">{message.message_sent}</p>
-                <p className="text-gray-700 text-justify">
+                <p className="text-gray-700 break-words">
+                  {message.message_sent}
+                </p>
+                <p className="text-gray-700 text-justify break-words max-w-[450px]">
                   {message.message_received}
                 </p>
                 <p className="text-gray-700 text-right">
@@ -142,25 +190,25 @@ const NewMessages = () => {
             ))}
         </div>
 
-        {/* <div className="flex justify-center space-x-2 mt-4" ref={refPagination}>
-        <button
-          onClick={prevPage}
-          disabled={currentPage === 1}
-          className="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300"
-        >
-          Previous
-        </button>
-        <span className="px-4 py-2 bg-gray-200 rounded">
-          Page {currentPage} of {totalPages}
-        </span>
-        <button
-          onClick={nextPage}
-          disabled={currentPage === totalPages}
-          className="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300"
-        >
-          Next
-        </button>
-      </div> */}
+        {!searching && <div className="flex justify-center gap-8 mt-4">
+          <button
+            onClick={handlePrevPage}
+            disabled={currentPage === 1}
+            className={`group h-10 overflow-hidden rounded-md px-6 text-neutral-50 transition ${
+              currentPage === 1
+                ? "bg-gray-300"
+                : "bg-blue-500 hover:bg-blue-600"
+            } font-semibold`}
+          >
+            Previous
+          </button>
+          <button
+            onClick={handleNextPage}
+            className="group h-10 overflow-hidden rounded-md bg-blue-500 px-6 text-neutral-50 transition hover:bg-blue-600 font-semibold"
+          >
+            Next
+          </button>
+        </div>}
       </div>
     </div>
   );

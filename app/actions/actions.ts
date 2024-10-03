@@ -70,7 +70,7 @@ export async function whatsappStats() {
       recipientNames[message.userId] = message.userName;
 
       const localDate = new Date(message.sent_at);
-      const monthName = localDate.toLocaleString("en-US", { month: "long" });
+      const monthName = localDate.toLocaleString("en-US", { month: "long", timeZone: "Asia/Kuala_Lumpur" });
       messagesByMonth[monthName] = (messagesByMonth[monthName] || 0) + 1;
 
       const hour = localDate.getHours(); // Get the hour (0-23)

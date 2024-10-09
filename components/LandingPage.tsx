@@ -3,6 +3,8 @@ import { cn } from "@/lib/utils";
 import Link from "next/link";
 import React from "react";
 import Image from "next/image";
+import { AnimatedBeamMultipleOutputDemo } from "./AnimatedBream";
+import { Bot } from "lucide-react";
 
 interface StickyHoverImageProps {
   src: string;
@@ -13,7 +15,7 @@ interface StickyHoverImageProps {
 
 function StickyHoverImage({ src, alt, width, height }: StickyHoverImageProps) {
   return (
-    <div className="fixed right-10 lg:right-20 top-1/2 transform -translate-y-1/2 z-50 transition-all duration-300 ease-in-out hover:scale-110 scale-50">
+    <div className="fixed left-10 top-1/4 transform -translate-y-1/2 z-50 transition-all duration-300 ease-in-out hover:scale-110 scale-50">
       <div className="flex justify-center font-bold text-lg">
         Chat on
         <p className="text-green-400"> &nbsp;WhatsApp</p>
@@ -38,9 +40,10 @@ const LandingPage = () => {
   return (
     <div className="flex flex-col items-center h-screen w-full text-center">
       <header className="bg-gray-800 text-white w-full">
-        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-          <div className="flex items-center space-x-2">
-            <span className="text-2xl font-bold">AIDA</span>
+        <div className="container mx-auto px-12 py-4 flex items-center justify-between">
+          <div className="flex items-center space-x-3">
+            <Bot size={40}/>
+            <span className="text-2xl font-bold tracking-widest">AIDA</span>
           </div>
           <nav className="flex space-x-4 font-bold">
             <Link href="/" className="hover:underline">
@@ -60,7 +63,7 @@ const LandingPage = () => {
         </div>
       </header>
 
-      <div className="flex w-full py-20 bg-gray-50 justify-between px-20 items-center gap-8">
+      <div className="flex w-full py-20 bg-gray-50 justify-between px-20 items-center gap-8 shadow-xl">
         <div className="flex flex-col w-full max-w-5xl gap-8">
           <div className="text-2xl lg:text-4xl font-bold">
             JABATAN DIGITAL NEGARA
@@ -68,8 +71,11 @@ const LandingPage = () => {
           <div className="text-2xl lg:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-violet-500 py-2">
             INTRODUCING AIDA
           </div>
-          <div className="text-2xl lg:text-4xl font-bold text-neutral-800">
-            Artificial Intelligence Digital Assistant
+          <div className="text-2xl lg:text-3xl font-bold text-neutral-800">
+            <span className="text-pink-500 text-4xl">A</span>rtificial{" "}
+            <span className="text-pink-500 text-4xl">I</span>ntelligence{" "}
+            <span className="text-pink-500 text-4xl">D</span>igital{" "}
+            <span className="text-pink-500 text-4xl">A</span>ssistant
           </div>
           <div className="text-xl lg:text-3xl font-bold">
             Your Digital Counter
@@ -94,17 +100,25 @@ const LandingPage = () => {
         height={200}
       />
 
+      <div className="w-full">
+        <AnimatedBeamMultipleOutputDemo/>
+      </div>
+
       <div className="flex flex-col items-center w-full mt-8 max-w-7xl">
         <div className="text-xl lg:text-3xl font-bold">
           Model trained on Data from{" "}
         </div>
         <div className="flex flex-wrap p-4 gap-4 justify-center font-semibold">
           {mouData.map((mou, index) => (
-            <div key={index} className="even:hover:rotate-3 duration-300 ease-in-out hover:-rotate-3 transform hover:-translate-y-1 hover:scale-110">
+            <div
+              key={index}
+              className="even:hover:rotate-3 duration-300 ease-in-out hover:-rotate-3 transform hover:-translate-y-1 hover:scale-110"
+            >
               <div
                 className={cn(
                   "bg-white border border-border rounded-xl p-4 w-48 h-40 flex justify-center items-center text-center shadow-lg",
-                  mou.scrape ? "bg-emerald-300" : "bg-blue-300"
+                  mou.scrape ? "bg-emerald-300" : "bg-blue-300",
+                  mou.scrape === null && "bg-yellow-300"
                 )}
               >
                 {mou.name}

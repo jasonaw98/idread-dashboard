@@ -18427,7 +18427,7 @@ export const cleanedData = [
 export const mouData = [
   { name: "KEMENTERIAN KEWANGAN MALAYSIA (MOF)", scrape: true },
   { name: "KEMENTERIAN DALAM NEGERI (KDN)", scrape: true },
-  { name: "KEMENTERIAN DIGITAL (KD)", scrape: true },
+  { name: "KEMENTERIAN DIGITAL (KD), JDN & Malaysia.gov.my", scrape: null },
   { name: "KEMENTERIAN SUMBER MANUSIA (KESUMA)", scrape: true },
   {
     name: "KEMENTERIAN PERTANIAN DAN KETERJAMINAN MAKANAN (KPKM)",
@@ -18450,12 +18450,12 @@ export const mouData = [
     scrape: true,
   },
   { name: "KEMENTERIAN LUAR NEGERI (KLN)", scrape: true },
-  { name: "JABATAN PERDANA MENTERI (JPM)", scrape: false },
+  { name: "JABATAN PERDANA MENTERI (JPM)", scrape: null },
   { name: "KEMENTERIAN PELANCONGAN, SENI DAN BUDAYA (MOTAC)", scrape: true },
   { name: "KEMENTERIAN PENGANGKUTAN (MOT)", scrape: true },
   {
     name: "KEMENTERIAN PEMBANGUNAN WANITA, KELUARGA DAN MASYARAKAT (KPWKM)",
-    scrape: false,
+    scrape: null,
   },
   { name: "KEMENTERIAN PERPADUAN NEGARA (KPN)", scrape: true },
   { name: "KEMENTERIAN KESIHATAN MALAYSIA (KKM)", scrape: false },

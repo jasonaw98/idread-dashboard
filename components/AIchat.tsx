@@ -11,7 +11,7 @@ import {
   CardFooter,
 } from "@/components/ui/card";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { MessageCircle, X, Minimize2, Maximize2, Bot } from "lucide-react";
+import { MessageCircle, X, Bot } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Skeleton } from "./ui/skeleton";
 import { chatbot } from "@/app/actions/actions";

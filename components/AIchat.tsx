@@ -40,8 +40,25 @@ export default function AIChatBot() {
       setIsLoading(true);
 
       try {
-        const responseData = await chatbot(input);
+        const zygyResponse = await fetch(`/api`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ message: input }),
+        });
+
+        if (!zygyResponse.ok) {
+          console.log(zygyResponse);
+          throw new Error("Network response was not ok");
+        }
+
+        const responseData = await zygyResponse.json();
         console.log("This is the response", responseData);
+
+      // try {
+      //   const responseData = await chatbot(input);
+      //   console.log("This is the response", responseData);
 
         setMessages((prev) => [...prev, { text: responseData? responseData.message : "Error fetching response", isUser: false }]);
       } catch (error) {

@@ -14,6 +14,7 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { MessageCircle, X, Minimize2, Maximize2, Bot } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Skeleton } from "./ui/skeleton";
+import { chatbot } from "@/app/actions/actions";
 
 interface Message {
   text: string;
@@ -38,22 +39,8 @@ export default function AIChatBot() {
       setInput("");
       setIsLoading(true);
 
-      // Simulate AI response
       try {
-        const zygyResponse = await fetch(`/api`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ message: input }),
-        });
-
-        if (!zygyResponse.ok) {
-          console.log(zygyResponse);
-          throw new Error("Network response was not ok");
-        }
-
-        const responseData = await zygyResponse.json();
+        const responseData = await chatbot(input);
         console.log("This is the response", responseData);
 
         setMessages((prev) => [...prev, { text: responseData.message, isUser: false }]);

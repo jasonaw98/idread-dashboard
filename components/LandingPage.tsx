@@ -60,15 +60,31 @@ const LandingPage = () => {
         </div>
       </header>
 
-      <div className="flex flex-col items-center py-20 bg-gray-100 w-full gap-8">
-        <div className="text-2xl lg:text-5xl font-bold">JABATAN DIGITAL NEGARA</div>
-        <div className="text-2xl lg:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-violet-500 py-2">
-          INTRODUCING AIDA
+      <div className="flex w-full py-20 bg-gray-50 justify-between px-20 items-center">
+        <div className="flex flex-col w-full max-w-5xl gap-8">
+          <div className="text-2xl lg:text-5xl font-bold">
+            JABATAN DIGITAL NEGARA
+          </div>
+          <div className="text-2xl lg:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-violet-500 py-2">
+            INTRODUCING AIDA
+          </div>
+          <div className="text-2xl lg:text-5xl font-bold text-neutral-800">
+            Artificial Intelligence Digital Assistant
+          </div>
+          <div className="text-xl lg:text-4xl font-bold">
+            Your Digital Counter
+          </div>
         </div>
-        <div className="text-2xl lg:text-5xl font-bold text-neutral-800">
-          Artificial Intelligence Digital Assistant
+
+        <div className="w-[38rem]">
+          <Image
+            src="/chat.jpeg"
+            alt="Hero"
+            width={360}
+            height={200}
+            className="rounded-lg shadow-xl -rotate-1 drop-shadow-2xl hover:rotate-2 duration-300"
+          />
         </div>
-        <div className="text-xl lg:text-4xl font-bold">Your Digital Counter</div>
       </div>
 
       <StickyHoverImage
@@ -79,10 +95,12 @@ const LandingPage = () => {
       />
 
       <div className="flex flex-col items-center w-full mt-8 max-w-7xl">
-        <div className="text-xl lg:text-3xl font-bold">Model trained on Data from </div>
+        <div className="text-xl lg:text-3xl font-bold">
+          Model trained on Data from{" "}
+        </div>
         <div className="flex flex-wrap p-4 gap-4 justify-center font-semibold">
           {mouData.map((mou, index) => (
-            <div key={index}>
+            <div key={index} className="even:hover:rotate-3 duration-300 ease-in-out hover:-rotate-3 transform hover:-translate-y-1 hover:scale-110">
               <div
                 className={cn(
                   "bg-white border border-border rounded-xl p-4 w-48 h-40 flex justify-center items-center text-center shadow-lg",

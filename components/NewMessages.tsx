@@ -35,7 +35,7 @@ const NewMessages = () => {
     }, 500);
 
     return (
-      <div className="relative flex flex-1 max-w-sm">
+      <div className="flex flex-1 flex-shrink max-w-60 relative">
         <label htmlFor="search" className="sr-only">
           Search
         </label>
@@ -123,19 +123,19 @@ const NewMessages = () => {
 
   return (
     <div className="flex flex-1 flex-col p-8 overflow-auto w-full">
-      <header className="flex items-center mb-8 gap-8">
+      <header className="flex items-center mb-8 gap-4">
         <h1 className="text-3xl font-bold">Messages</h1>
         <button
           onClick={() => fetch(currentPage)}
-          className="group h-10 overflow-hidden rounded-md bg-blue-500 px-6 text-neutral-50 transition hover:bg-blue-600 font-semibold"
+          className="group py-2 overflow-hidden rounded-md bg-blue-500 px-4 text-neutral-50 transition hover:bg-blue-600 font-semibold"
         >
-          <span className="relative">{loading ? "Loading..." : "Refresh"}</span>
+          {loading ? "Loading..." : "Refresh"}
         </button>
         <button
           onClick={() => ExportXlsx("Messages", "MessageExport")}
-          className="group h-10 overflow-hidden rounded-md bg-green-500 px-6 text-neutral-50 transition hover:bg-blue-600 font-semibold"
+          className="group py-2 overflow-hidden rounded-md bg-green-500 px-4 text-neutral-50 transition hover:bg-blue-600 font-semibold"
         >
-          <span className="relative">{loading ? "Loading..." : "Export"}</span>
+          {loading ? "Loading..." : "Export"}
         </button>
         <Search />
       </header>

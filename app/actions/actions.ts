@@ -116,7 +116,6 @@ export async function chatbot(message: string) {
     });
 
     const responseData = await zygyResponse.json();
-    console.log("This is the response", responseData);
 
     return {
       message: responseData.answer,

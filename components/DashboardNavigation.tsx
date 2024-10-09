@@ -8,7 +8,7 @@ const DashboardNavigation = () => {
   return (
     <aside className="w-64 bg-white dark:bg-gray-800 p-4">
       <div className="flex justify-between items-center flex-col">
-        <h2 className="text-2xl font-bold mb-4">Chat Analytics</h2>
+        <h2 className="text-2xl font-bold mb-4 text-center">Chat Analytics</h2>
       </div>
       <nav className="flex flex-col">
         <TabsList className="flex flex-col bg-transparent h-full gap-2">

@@ -43,10 +43,10 @@ export default function AIChatBot() {
         const responseData = await chatbot(input);
         console.log("This is the response", responseData);
 
-        setMessages((prev) => [...prev, { text: responseData.message, isUser: false }]);
+        setMessages((prev) => [...prev, { text: responseData? responseData.message : "Error fetching response", isUser: false }]);
       } catch (error) {
         console.log(error);
-        setMessages((prev) => [...prev, { text: "Error fetching response", isUser: false }]);
+        // setMessages((prev) => [...prev, { text: "Error fetching response", isUser: false }]);
       } finally {
         setIsLoading(false); // Stop loading
       }

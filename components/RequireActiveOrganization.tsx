@@ -5,7 +5,7 @@ import { PropsWithChildren } from "react";
 export const RequireActiveOrganization = (props: PropsWithChildren) => {
   const { orgId } = auth();
 
-  if (orgId === process.env.NEXT_ORGID) {
+  if (orgId === process.env.NEXT_ORGID_DEMO || orgId === process.env.NEXT_ORGID_INTERNAL) {
     return props.children;
   }
   return (

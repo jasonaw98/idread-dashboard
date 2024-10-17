@@ -78,7 +78,7 @@ const LandingPage = async () => {
                   className="hover:underline"
                   data-umami-event="Dashboard button"
                 >
-                  ZYGY AI
+                  DIGITAL TWIN
                 </Link>
               </div>
             ) : null}

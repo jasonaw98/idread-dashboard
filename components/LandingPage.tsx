@@ -42,20 +42,25 @@ const LandingPage = () => {
       <header className="bg-gray-800 text-white w-full">
         <div className="container mx-auto px-12 py-4 flex items-center justify-between">
           <div className="flex items-center space-x-3">
-            <Bot size={40}/>
+            <Bot size={40} />
             <span className="text-2xl font-bold tracking-widest">AIDA</span>
           </div>
           <nav className="flex space-x-4 font-bold">
             <Link href="/" className="hover:underline">
               Home
             </Link>
-            <Link href="/dashboard" className="hover:underline">
+            <Link
+              href="/dashboard"
+              className="hover:underline"
+              data-umami-event="Dashboard button"
+            >
               Dashboard
             </Link>
             <Link
               href="https://api.whatsapp.com/send?phone=60142889860"
               target="_blank"
               className="hover:underline"
+              data-umami-event="whatsapp button"
             >
               Whatsapp
             </Link>
@@ -101,7 +106,7 @@ const LandingPage = () => {
       />
 
       <div className="w-full">
-        <AnimatedBeamMultipleOutputDemo/>
+        <AnimatedBeamMultipleOutputDemo />
       </div>
 
       <div className="flex flex-col items-center w-full mt-8 max-w-7xl">

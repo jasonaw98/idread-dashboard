@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
+import Script from "next/script";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -27,6 +28,11 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en">
+      <Script
+          defer
+          src="https://umami-analytics-gules.vercel.app/script.js"
+          data-website-id="58445ba7-67e1-49bc-9ac0-e9ff730d1ed4"
+        />
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         >

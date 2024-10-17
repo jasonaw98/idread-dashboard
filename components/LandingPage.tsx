@@ -5,6 +5,8 @@ import React from "react";
 import Image from "next/image";
 import { AnimatedBeamMultipleOutputDemo } from "./AnimatedBream";
 import { Bot } from "lucide-react";
+import { auth, currentUser } from "@clerk/nextjs/server";
+import { SignedOut, SignInButton, SignedIn, UserButton } from "@clerk/nextjs";
 
 interface StickyHoverImageProps {
   src: string;
@@ -12,6 +14,7 @@ interface StickyHoverImageProps {
   width: number;
   height: number;
 }
+
 
 function StickyHoverImage({ src, alt, width, height }: StickyHoverImageProps) {
   return (
@@ -23,20 +26,22 @@ function StickyHoverImage({ src, alt, width, height }: StickyHoverImageProps) {
       <Link
         href={"https://api.whatsapp.com/send?phone=60142889860"}
         target="_blank"
-      >
+        >
         <Image
           src={src}
           alt={alt}
           width={width}
           height={height}
           className="shadow-lg rounded-lg"
-        />
+          />
       </Link>
     </div>
   );
 }
 
-const LandingPage = () => {
+const LandingPage = async () => {
+  const user = await currentUser()
+  const { orgId } = auth();
   return (
     <div className="flex flex-col items-center h-screen w-full text-center">
       <header className="bg-gray-800 text-white w-full">
@@ -45,16 +50,9 @@ const LandingPage = () => {
             <Bot size={40} />
             <span className="text-2xl font-bold tracking-widest">AIDA</span>
           </div>
-          <nav className="flex space-x-4 font-bold">
+          <nav className="flex space-x-4 font-bold items-center">
             <Link href="/" className="hover:underline">
               Home
-            </Link>
-            <Link
-              href="/dashboard"
-              className="hover:underline"
-              data-umami-event="Dashboard button"
-            >
-              Dashboard
             </Link>
             <Link
               href="https://api.whatsapp.com/send?phone=60142889860"
@@ -64,6 +62,32 @@ const LandingPage = () => {
             >
               Whatsapp
             </Link>
+            {user && orgId === process.env.NEXT_ORGID_DEMO ||
+            orgId === process.env.NEXT_ORGID_INTERNAL ? (
+              <div className="flex gap-4 items-center">
+                <Link
+                  href="/dashboard"
+                  className="hover:underline"
+                  data-umami-event="Dashboard button"
+                >
+                  Dashboard
+                </Link>
+                <Link
+                  href="https://aida.zygy.com"
+                  target="_blank"
+                  className="hover:underline"
+                  data-umami-event="Dashboard button"
+                >
+                  ZYGY AI
+                </Link>
+              </div>
+            ) : null}
+            <SignedOut>
+              <SignInButton />
+            </SignedOut>
+            <SignedIn>
+              <UserButton />
+            </SignedIn>
           </nav>
         </div>
       </header>

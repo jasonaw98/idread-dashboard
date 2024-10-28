@@ -94,9 +94,9 @@ const LandingPage = async () => {
 
       <div className="flex w-full py-20 bg-gray-50 justify-between px-20 items-center gap-8 shadow-xl">
         <div className="flex flex-col w-full max-w-5xl gap-8">
-          <div className="text-2xl lg:text-4xl font-bold">
+          {/* <div className="text-2xl lg:text-4xl font-bold">
             JABATAN DIGITAL NEGARA
-          </div>
+          </div> */}
           <div className="text-2xl lg:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-violet-500 py-2">
             INTRODUCING AIDA
           </div>

@@ -18458,6 +18458,6 @@ export const mouData = [
     scrape: null,
   },
   { name: "KEMENTERIAN PERPADUAN NEGARA (KPN)", scrape: true },
-  { name: "KEMENTERIAN KESIHATAN MALAYSIA (KKM)", scrape: false },
-  { name: "KEMENTERIAN PERLADANGAN DAN KOMODITI (KPK)", scrape: false },
+  { name: "KEMENTERIAN KESIHATAN MALAYSIA (KKM)", scrape: true },
+  { name: "KEMENTERIAN PERLADANGAN DAN KOMODITI (KPK)", scrape: null },
 ];

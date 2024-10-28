@@ -4,9 +4,10 @@ import Link from "next/link";
 import React from "react";
 import Image from "next/image";
 import { AnimatedBeamMultipleOutputDemo } from "./AnimatedBream";
-import { Bot } from "lucide-react";
+import { Bot, ShieldEllipsis, Sparkle, TvMinimal } from "lucide-react";
 import { auth, currentUser } from "@clerk/nextjs/server";
 import { SignedOut, SignInButton, SignedIn, UserButton } from "@clerk/nextjs";
+import SpotlightCard from "../components/ui/Spotlightcard";
 
 interface StickyHoverImageProps {
   src: string;
@@ -15,6 +16,32 @@ interface StickyHoverImageProps {
   height: number;
 }
 
+const cardData = [
+  {
+    title: "",
+    description:
+      "AIDA is an AI Digital Assistant designed to streamline interactions between users and organizations, providing automated support, information, and task completion with a focus on security and efficiency.",
+    icon: <Bot size={40} />,
+  },
+  {
+    title: "",
+    description:
+      "TThe Digital Counter by AIDA is a virtual service point where users can access government services, make inquiries, submit documents, and complete tasks online with AI support, reducing the need for in-person visits.",
+    icon: <TvMinimal size={40} />,
+  },
+  {
+    title: "",
+    description:
+      "The Digital Twin by AIDA is a virtual replica of physical government service processes, designed to simulate, monitor, and enhance real-world operations. By using AI and real-time data, it mirrors activities, analyzes performance, and anticipates service needs, allowing for more efficient and data-driven management of government services.",
+    icon: <Sparkle size={40} />,
+  },
+  {
+    title: "",
+    description:
+      "AIDA secures all inputs and outputs on blockchain, displaying information with a blockchain-verified QR code for easy authentication and an invisible blockchain watermark on every output, ensuring data integrity and transparency.",
+    icon: <ShieldEllipsis size={40} />,
+  },
+];
 
 function StickyHoverImage({ src, alt, width, height }: StickyHoverImageProps) {
   return (
@@ -26,21 +53,21 @@ function StickyHoverImage({ src, alt, width, height }: StickyHoverImageProps) {
       <Link
         href={"https://api.whatsapp.com/send?phone=60142889860"}
         target="_blank"
-        >
+      >
         <Image
           src={src}
           alt={alt}
           width={width}
           height={height}
           className="shadow-lg rounded-lg"
-          />
+        />
       </Link>
     </div>
   );
 }
 
 const LandingPage = async () => {
-  const user = await currentUser()
+  const user = await currentUser();
   const { orgId } = auth();
   return (
     <div className="flex flex-col items-center h-screen w-full text-center">
@@ -62,7 +89,7 @@ const LandingPage = async () => {
             >
               Whatsapp
             </Link>
-            {user && orgId === process.env.NEXT_ORGID_DEMO ||
+            {(user && orgId === process.env.NEXT_ORGID_DEMO) ||
             orgId === process.env.NEXT_ORGID_INTERNAL ? (
               <div className="flex gap-4 items-center">
                 <Link
@@ -92,7 +119,7 @@ const LandingPage = async () => {
         </div>
       </header>
 
-      <div className="flex w-full py-20 bg-gray-50 justify-between px-20 items-center gap-8 shadow-xl">
+      <div className="flex w-full py-20 bg-gray-50 justify-between px-20 items-center gap-8">
         <div className="flex flex-col w-full max-w-5xl gap-8">
           {/* <div className="text-2xl lg:text-4xl font-bold">
             JABATAN DIGITAL NEGARA
@@ -129,13 +156,17 @@ const LandingPage = async () => {
         height={200}
       />
 
+      <div className="w-full mt-10 px-8">
+        <SpotlightCard cards={cardData} />
+      </div>
+
       <div className="w-full">
         <AnimatedBeamMultipleOutputDemo />
       </div>
 
       <div className="flex flex-col items-center w-full mt-8 max-w-7xl">
         <div className="text-xl lg:text-3xl font-bold">
-          Model trained on Data from{" "}
+          Model trained on Data from Ministers{" "}
         </div>
         <div className="flex flex-wrap p-4 gap-4 justify-center font-semibold">
           {mouData.map((mou, index) => (

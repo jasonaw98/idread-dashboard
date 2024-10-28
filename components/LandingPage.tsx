@@ -18,28 +18,32 @@ interface StickyHoverImageProps {
 
 const cardData = [
   {
-    title: "",
+    title: "AIDA",
     description:
       "AIDA is an AI Digital Assistant designed to streamline interactions between users and organizations, providing automated support, information, and task completion with a focus on security and efficiency.",
     icon: <Bot size={40} />,
+    className: "bg-[#e9c46a]",
   },
   {
-    title: "",
+    title: "Digital Counter",
     description:
       "TThe Digital Counter by AIDA is a virtual service point where users can access government services, make inquiries, submit documents, and complete tasks online with AI support, reducing the need for in-person visits.",
     icon: <TvMinimal size={40} />,
+    className: "bg-[#f4a261]",
   },
   {
-    title: "",
+    title: "Digital Twin",
     description:
       "The Digital Twin by AIDA is a virtual replica of physical government service processes, designed to simulate, monitor, and enhance real-world operations. By using AI and real-time data, it mirrors activities, analyzes performance, and anticipates service needs, allowing for more efficient and data-driven management of government services.",
     icon: <Sparkle size={40} />,
+    className: "bg-[#2a9d8f]",
   },
   {
-    title: "",
+    title: "Security",
     description:
       "AIDA secures all inputs and outputs on blockchain, displaying information with a blockchain-verified QR code for easy authentication and an invisible blockchain watermark on every output, ensuring data integrity and transparency.",
     icon: <ShieldEllipsis size={40} />,
+    className: "bg-[#ffca3a]",
   },
 ];
 
@@ -132,9 +136,6 @@ const LandingPage = async () => {
             <span className="text-pink-500 text-4xl">I</span>ntelligence{" "}
             <span className="text-pink-500 text-4xl">D</span>igital{" "}
             <span className="text-pink-500 text-4xl">A</span>ssistant
-          </div>
-          <div className="text-xl lg:text-3xl font-bold">
-            Your Digital Counter
           </div>
         </div>
 

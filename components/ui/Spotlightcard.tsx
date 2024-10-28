@@ -1,18 +1,21 @@
 'use client'
 import React, { useRef, useState } from 'react';
 import { motion, useAnimation } from 'framer-motion';
+import { cn } from '@/lib/utils';
 
 interface CardData {
   title: string;
   description: string;
   icon?: React.ReactNode;
+  className?: string;
 }
 
 interface SpotlightCardProps {
   cards: CardData[];
+  className?: string;
 }
 
-const SpotlightItem: React.FC<CardData> = ({ title, description, icon }) => {
+const SpotlightItem: React.FC<CardData> = ({ title, description, icon, className }) => {
   const divRef = useRef<HTMLDivElement>(null);
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const controls = useAnimation();
@@ -32,7 +35,7 @@ const SpotlightItem: React.FC<CardData> = ({ title, description, icon }) => {
       onMouseMove={handleMouseMove}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      className={`relative w-80 rounded-3xl border border-neutral-200 bg-neutral-100 p-12`}
+      className={cn(`relative w-80 rounded-3xl border border-neutral-200 bg-neutral-100 p-12` , className)}
     >
       <motion.div
         className="pointer-events-none absolute -inset-px rounded-3xl "
@@ -42,12 +45,12 @@ const SpotlightItem: React.FC<CardData> = ({ title, description, icon }) => {
           background: `radial-gradient(600px circle at ${position.x}px ${position.y}px, rgba(242, 243, 244,.25), transparent 40%)`,
         }}
       />
+      <h3 className="mb-2 font-semibold text-neutral-800">
+        {title}
+      </h3>
       <div className="mb-4 flex justify-center w-full">
         {icon}
       </div>
-      <h3 className="mb-2 font-medium text-neutral-800">
-        {title}
-      </h3>
       <p className="text-sm text-neutral-800">
         {description}
       </p>
@@ -64,6 +67,7 @@ const SpotlightCard: React.FC<SpotlightCardProps> = ({ cards }) => {
           title={card.title}
           description={card.description}
           icon={card.icon}
+          className={card.className}
         />
       ))}
     </div>

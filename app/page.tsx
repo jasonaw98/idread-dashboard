@@ -5,7 +5,7 @@ export default async function Home() {
   return (
     <main className="h-screen">
       <LandingPage />
-      <AIChatBot />
+      {/* <AIChatBot /> */}
     </main>
   );
 }

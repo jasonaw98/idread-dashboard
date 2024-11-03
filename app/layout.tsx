@@ -27,14 +27,14 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider>
-      <html lang="en">
+      <html lang="en" className="scroll-smooth">
       <Script
           defer
           src="https://umami-analytics-gules.vercel.app/script.js"
           data-website-id="58445ba7-67e1-49bc-9ac0-e9ff730d1ed4"
         />
         <body
-          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+          className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#090b1a]`}
         >
           {children}
         </body>

@@ -18425,39 +18425,77 @@ export const cleanedData = [
 ];
 
 export const mouData = [
-  { name: "KEMENTERIAN KEWANGAN MALAYSIA (MOF)", scrape: true },
-  { name: "KEMENTERIAN DALAM NEGERI (KDN)", scrape: true },
-  { name: "KEMENTERIAN DIGITAL (KD), JDN & Malaysia.gov.my", scrape: null },
-  { name: "KEMENTERIAN SUMBER MANUSIA (KESUMA)", scrape: true },
+  {
+    name: "KEMENTERIAN DIGITAL (KD), JDN & Malaysia.gov.my",
+    scrape: null,
+    date: "2 Sept 2024",
+  },
+  {
+    name: "KEMENTERIAN KEWANGAN MALAYSIA (MOF)",
+    scrape: true,
+    date: "9 Sept 2024",
+  },
+  {
+    name: "KEMENTERIAN DALAM NEGERI (KDN)",
+    scrape: true,
+    date: "11 Sept 2024",
+  },
+  {
+    name: "KEMENTERIAN SUMBER MANUSIA (KESUMA)",
+    scrape: true,
+    date: "13 Sept 2024",
+  },
   {
     name: "KEMENTERIAN PERTANIAN DAN KETERJAMINAN MAKANAN (KPKM)",
     scrape: true,
+    date: "16 Sept 2024",
   },
   {
     name: "KEMENTERIAN PEMBANGUNAN USAHAWAN DAN KOPERASI (KUSKOP)",
     scrape: true,
+    date: "18 Sept 2024",
   },
   {
     name: "KEMENTERIAN PELABURAN, PERDAGANGAN DAN INDUSTRI (MITI)",
     scrape: true,
+    date: "20 Sept 2024",
   },
   {
     name: "KEMENTERIAN SUMBER ASLI DAN KELESTARIAN ALAM (NRES)",
     scrape: true,
+    date: "23 Sept 2024",
   },
   {
     name: "KEMENTERIAN PERALIHAN TENAGA DAN TRANSFORMASI AIR (PETRA)",
     scrape: true,
+    date: "25 Sept 2024",
   },
-  { name: "KEMENTERIAN LUAR NEGERI (KLN)", scrape: true },
-  { name: "JABATAN PERDANA MENTERI (JPM)", scrape: null },
-  { name: "KEMENTERIAN PELANCONGAN, SENI DAN BUDAYA (MOTAC)", scrape: true },
-  { name: "KEMENTERIAN PENGANGKUTAN (MOT)", scrape: true },
+  { name: "KEMENTERIAN LUAR NEGERI (KLN)", scrape: true, date: "27 Sept 2024" },
+  { name: "JABATAN PERDANA MENTERI (JPM)", scrape: null, date: "30 Sept 2024" },
+  {
+    name: "KEMENTERIAN PELANCONGAN, SENI DAN BUDAYA (MOTAC)",
+    scrape: true,
+    date: "2 Oct 2024",
+  },
+  { name: "KEMENTERIAN PENGANGKUTAN (MOT)", scrape: true, date: "4 Oct 2024" },
   {
     name: "KEMENTERIAN PEMBANGUNAN WANITA, KELUARGA DAN MASYARAKAT (KPWKM)",
     scrape: null,
+    date: "7 Oct 2024",
   },
-  { name: "KEMENTERIAN PERPADUAN NEGARA (KPN)", scrape: true },
-  { name: "KEMENTERIAN KESIHATAN MALAYSIA (KKM)", scrape: true },
-  { name: "KEMENTERIAN PERLADANGAN DAN KOMODITI (KPK)", scrape: null },
+  {
+    name: "KEMENTERIAN PERPADUAN NEGARA (KPN)",
+    scrape: true,
+    date: "9 Oct 2024",
+  },
+  {
+    name: "KEMENTERIAN KESIHATAN MALAYSIA (KKM)",
+    scrape: true,
+    date: "11 Oct 2024",
+  },
+  {
+    name: "KEMENTERIAN PERLADANGAN DAN KOMODITI (KPK)",
+    scrape: null,
+    date: "14 Oct 2024",
+  },
 ];

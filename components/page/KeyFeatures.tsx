@@ -1,12 +1,12 @@
 import { title } from "process";
 import { GlareCard } from "../ui/glare-card";
-import { Globe, Lightbulb, LockKeyhole, Sparkle } from "lucide-react";
+import { Computer, Globe, Lightbulb, LockKeyhole, Sparkle, UsersRound, UsersRoundIcon } from "lucide-react";
 
 const GlareContent = [
   {
     title: "24/7 Availability",
     description:
-      "Access government services and information anytime, anywhere. Our AI chatbot is always ready to assist you.",
+      "Access government services and information anytime, anywhere. AIDA is always ready to serve you.",
     icon: <Globe size={25} />,
   },
   {
@@ -18,7 +18,7 @@ const GlareContent = [
   {
     title: "Private LLM",
     description:
-      "Complete government-related enquiries securely through our private LLM.",
+      "Our National LLM is designed to provide government-related enquiries securely through our private LLM.",
     icon: <Sparkle size={25} />,
   },
   {
@@ -31,13 +31,13 @@ const GlareContent = [
     title: "Digital Counter",
     description:
       "Designed to streamline interactions between users and organizations, providing automated support, information with a focus on security and efficiency.",
-    icon: <LockKeyhole size={25} />,
+    icon: <Computer size={25} />,
   },
   {
     title: "Digital Twin",
     description:
       "Virtual replica of physical government service processes, designed to simulate, monitor, and enhance real-world operations allowing data-driven management of government services.",
-    icon: <LockKeyhole size={25} />,
+    icon: <UsersRound size={25} />,
   },
 ];
 

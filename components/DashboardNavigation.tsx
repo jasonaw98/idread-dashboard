@@ -49,16 +49,6 @@ const DashboardNavigation = () => {
             </Button>
           </Link>
           <TabsTrigger
-            value="olddata"
-            className="w-full hover:bg-gray-100 justify-start"
-            asChild
-          >
-            <Button variant="ghost" className="w-full justify-start">
-              <MessageSquare className="mr-2 h-4 w-4" />
-              Old Data
-            </Button>
-          </TabsTrigger>
-          <TabsTrigger
             value="archives"
             className="w-full hover:bg-gray-100 justify-start"
             asChild

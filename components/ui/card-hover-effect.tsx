@@ -69,7 +69,7 @@ export const Card = ({
   return (
     <div
       className={cn(
-        "rounded-2xl h-full w-full p-4 overflow-hidden bg-gray-800 border border-white/[0.2] group-hover:border-slate-700 relative z-20",
+        "rounded-2xl h-full w-full p-4 overflow-hidden bg-gray-900 border border-white/[0.2] group-hover:border-slate-700 relative z-20 shadow-inner shadow-white/30",
         className
       )}
     >
@@ -78,8 +78,8 @@ export const Card = ({
           <span
             className={cn(
               "w-3 h-3 rounded-full",
-              status ? "bg-emerald-400" : "bg-red-400",
-              status === null && "bg-yellow-400"
+              status ? "bg-emerald-400 shadow-[0_0px_20px_3px_rgba(56,211,153.1)]" : "bg-red-400 shadow-[0_0px_20px_3px_rgba(248,114,113.1)]",
+              status === null && "bg-yellow-400 shadow-[0_0px_20px_3px_rgba(251,204,22.1)]"
             )}
           ></span>
         </div>
@@ -116,7 +116,7 @@ export const CardDescription = ({
         className
       )}
     >
-      <button className="px-8 py-2 rounded-full relative bg-slate-800 text-white text-xs hover:shadow-2xl hover:shadow-white/[0.1] transition duration-200 border border-slate-600">
+      <button className="px-8 py-2 rounded-full relative bg-slate-800 text-white text-xs hover:shadow-2xl hover:shadow-white/[0.1] transition duration-200 border border-slate-600 cursor-default">
         <div className="absolute inset-x-0 h-px w-1/2 mx-auto -top-px shadow-2xl  bg-gradient-to-r from-transparent via-teal-500 to-transparent" />
         <span className="relative z-20">{children}</span>
       </button>

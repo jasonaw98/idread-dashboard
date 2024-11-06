@@ -1,14 +1,11 @@
-
-import Link from "next/link";
-import React from "react";
 import { auth, currentUser } from "@clerk/nextjs/server";
-import { SignedOut, SignInButton, SignedIn, UserButton } from "@clerk/nextjs";
 import { Hero } from "./page/Hero";
 import { FloatingNav } from "./ui/floating-navbar";
 import KeyFeatures from "./page/KeyFeatures";
 import Aida from "./page/Aida";
 import Scraping from "./page/Scraping";
 import Faq from "./page/Faq";
+import { TimelineDemo } from "./page/Timeline";
 
 const navItems = [
   {
@@ -22,9 +19,14 @@ const navItems = [
     // icon: <Projectsvg/>
   },
   {
+    name: "Timeline",
+    link: "#timeline",
+    // icon: <Projectsvg/>
+  },
+  {
     name: "Whatsapp",
     link: "https://api.whatsapp.com/send?phone=60142889860",
-    target: "blank",
+    target: "_blank",
     // icon: <Resumesvg/>
   },
 ];
@@ -40,6 +42,7 @@ const LandingPage = async () => {
       <Hero />
       <Aida/>
       <KeyFeatures/>
+      <TimelineDemo/>
       <Scraping/>
       <Faq/>
 

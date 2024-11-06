@@ -62,7 +62,13 @@ export function AnimatedBeamMultipleOutputDemo({
         </div>
         <div className="flex flex-col justify-center">
           <Circle ref={div6Ref} className="size-16">
-            <Bot size={40} />
+          <Image
+            src={"/chatbot.jpeg"}
+            width={50}
+            height={40}
+            className="scale-125 rounded-full"
+            alt="logo"
+          />
           </Circle>
         </div>
         <div className="flex flex-col justify-center">

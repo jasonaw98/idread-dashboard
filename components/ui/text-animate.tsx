@@ -220,7 +220,7 @@ const TextAnimate: FC<Props> = ({
 
   if (type === "rollIn" || type === "whipIn") {
     return (
-      <h2 className="mt-4 text-6xl font-black text-neutral-100 py-2 px-8 md:text-6xl">
+      <h2 className="mt-4 text-4xl font-black text-neutral-100 py-2 px-8 md:text-6xl">
         {text.split(" ").map((word, index) => {
           return (
             <motion.span

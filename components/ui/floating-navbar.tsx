@@ -65,7 +65,7 @@ export const FloatingNav = ({
           duration: 0.2,
         }}
         className={cn(
-          "flex max-w-fit fixed top-8 inset-x-0 mx-auto border border-slate-700 rounded-full bg-white/10 backdrop-blur-md saturate-150 shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] z-[5000] px-9 py-5  items-center justify-center space-x-8",
+          "flex max-w-fit fixed top-8 inset-x-0 mx-auto border border-slate-700 rounded-full bg-white/10 backdrop-blur-md saturate-150 shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] z-[5000] px-9 py-5  items-center justify-center space-x-1 md:space-x-8",
           className
         )}
       >
@@ -88,12 +88,12 @@ export const FloatingNav = ({
               "relativetext-neutral-50 items-center flex space-x-1 font-semibold dark:hover:text-neutral-300 hover:text-neutral-400 text-white"
             )}
           >
-            <span className="block sm:hidden">{navItem.icon}</span>
+            {/* <span className="block sm:hidden">{navItem.icon}</span> */}
             <span className="hidden sm:block text-md">{navItem.name}</span>
           </Link>
         ))}
         {member && (
-          <div className="flex space-x-8 items-center text-white font-bold">
+          <div className="flex space-x-3 md:space-x-8 items-center text-white font-bold">
             <Link
               href="/dashboard"
               className="hover:underline"
@@ -107,11 +107,11 @@ export const FloatingNav = ({
               className="hover:underline"
               data-umami-event="Dashboard button"
             >
-              DIGITAL TWIN
+              Digital Twin
             </Link>
           </div>
         )}
-        <div className="text-white font-bold hover:text-neutral-400 flex">
+        <div className="text-white font-bold hover:text-neutral-400 flex pl-2">
           <SignedOut>
             <SignInButton />
           </SignedOut>

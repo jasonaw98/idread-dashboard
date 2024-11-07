@@ -30,22 +30,22 @@ const faq = [
 
 const Faq = () => {
   return (
-    <div className="flex flex-col w-full items-center p-24">
+    <div className="flex flex-col w-full items-center px-6 md:p-24">
       <div className="flex flex-col items-center text-center">
         <h1 className="text-3xl md:text-6xl bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 font-bold py-4 max-w-5xl">
           Frequently Asked Questions
         </h1>
       </div>
 
-      <div className="text-white w-full max-w-5xl mt-32">
+      <div className="text-white w-full max-w-5xl mt-16 md:mt-32">
         <span className="bg-white w-full h-px flex" />
         <Accordion type="single" collapsible className="space-y-4">
           {faq.map((item, index) => (
             <AccordionItem key={index} value={`item-${index}`}>
-              <AccordionTrigger className="text-lg font-semibold">
+              <AccordionTrigger className="md:text-lg font-semibold">
                 {item.question}
               </AccordionTrigger>
-              <AccordionContent className="text-lg font-semibold text-neutral-300">{item.answer}</AccordionContent>
+              <AccordionContent className="md:text-lg font-semibold text-neutral-300 text-start">{item.answer}</AccordionContent>
             </AccordionItem>
           ))}
         </Accordion>

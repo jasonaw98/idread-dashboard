@@ -13,7 +13,7 @@ import {
 export function Hero() {
   return (
     <div
-      className="min-h-screen w-full rounded-md flex items-center justify-center antialiased bg-grid-white/[0.04] relative overflow-hidden"
+      className="min-h-screen w-full rounded-md flex items-center justify-center antialiased bg-grid-white/[0.04] relative overflow-hidden px-4"
       id="home"
     >
       <div className="absolute pointer-events-none inset-0 flex items-center justify-center bg-black/70 [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]" />
@@ -49,13 +49,13 @@ export function Hero() {
         <TextAnimate
           text="Empowering Citizens With"
           type="rollIn"
-          className="text-4xl md:text-6xl font-extrabold text-center text-white"
+          className="text-center text-white"
         />
-        <span className="text-4xl md:text-7xl font-extrabold text-center text-transparent bg-clip-text bg-gradient-to-br from-green-300  to-blue-600">
+        <span className="text-2xl md:text-7xl font-extrabold text-center text-transparent bg-clip-text bg-gradient-to-br from-green-300  to-blue-600">
           AI-Powered Government Services
         </span>
         {/* <span className="w-full flex bg-gradient-to-r from-sky-500 to-indigo-600 h-0.5"/> */}
-        <p className="text-blue-200 font-semibold text-center max-w-3xl text-lg mt-4">
+        <p className="text-blue-200 font-semibold text-center max-w-3xl md:text-lg mt-4">
           Experience seamless interaction with government services through our
           state-of-the-art
           <span className="font-semibold text-center text-yellow-400">

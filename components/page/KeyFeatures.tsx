@@ -43,7 +43,7 @@ const GlareContent = [
 
 const KeyFeatures = () => {
   return (
-    <div className="flex flex-col w-full items-center p-24">
+    <div className="flex flex-col w-full items-center md:p-24">
       <div className="flex flex-col items-center text-center gap-4">
         <span className="text-blue-500 font-extrabold text-lg">
           Efficient Governance
@@ -51,7 +51,7 @@ const KeyFeatures = () => {
         <h1 className="text-3xl md:text-6xl bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 font-bold py-4 max-w-5xl">
           Key Features of Our Government Digital Assistant
         </h1>
-        <span className="text-neutral-300 text-lg font-semibold max-w-3xl">
+        <span className="text-neutral-300 md:text-lg font-semibold max-w-3xl">
           Discover how our AI-powered chatbot is revolutionizing
           citizen-government interactions with these innovative features.
         </span>

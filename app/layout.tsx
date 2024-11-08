@@ -17,7 +17,7 @@ const geistMono = localFont({
 
 export const metadata: Metadata = {
   title: "AIDA Digital Assistant (AI-Powered Government Services)",
-  description: "Your Digital Counter",
+  description: "AIDA is a cutting-edge AI-powered chatbot that revolutionizes how governments interact with citizens.",
 };
 
 export default function RootLayout({

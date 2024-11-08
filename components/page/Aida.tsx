@@ -3,7 +3,7 @@ import { TextAnimate } from "../ui/text-animate";
 
 const Aida = () => {
   return (
-    <div className="flex flex-col w-full items-center p-2 py-10 md:py-0 md:p-24" id="aida">
+    <div className="flex flex-col w-full items-center p-2 py-10 md:p-24" id="aida">
       <div className="flex flex-col items-center text-center gap-4">
         <span className="text-blue-500 font-extrabold md:text-lg">
           Digital Counter

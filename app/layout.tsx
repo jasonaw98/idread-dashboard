@@ -16,7 +16,7 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "AIDA Digital Counter",
+  title: "AIDA Digital Assistant (AI-Powered Government Services)",
   description: "Your Digital Counter",
 };
 

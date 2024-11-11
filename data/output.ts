@@ -18480,7 +18480,7 @@ export const mouData = [
   { name: "KEMENTERIAN PENGANGKUTAN (MOT)", scrape: true, date: "4 Oct 2024" },
   {
     name: "KEMENTERIAN PEMBANGUNAN WANITA, KELUARGA DAN MASYARAKAT (KPWKM)",
-    scrape: null,
+    scrape: true,
     date: "7 Oct 2024",
   },
   {
@@ -18495,7 +18495,7 @@ export const mouData = [
   },
   {
     name: "KEMENTERIAN PERLADANGAN DAN KOMODITI (KPK)",
-    scrape: null,
+    scrape: true,
     date: "14 Oct 2024",
   },
 ];

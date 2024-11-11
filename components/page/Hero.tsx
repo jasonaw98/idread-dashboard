@@ -59,7 +59,7 @@ export function Hero() {
           Experience seamless interaction with government services through our
           state-of-the-art
           <span className="font-semibold text-center text-yellow-400">
-            &nbsp;National LLM.&nbsp;
+            &nbsp;Government Compliant LLM.&nbsp;
           </span>
           Get instant answers, guidance, and support 24/7.
         </p>

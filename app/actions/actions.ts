@@ -54,7 +54,7 @@ export async function whatsappStats() {
   const supabase = createClient();
   const { data, error, count } = await (await supabase)
     .from("whatsapp")
-    .select("*");
+    .select("*", { count: 'exact'});
 
   if (error) {
     console.error("Error fetching data:", error);
@@ -93,7 +93,7 @@ export async function whatsappStats() {
 
     return {
       uniqueUsers: uniqueRecipients.size,
-      totalMessages: data.length,
+      totalMessages: count,
       recipientMessageCountArray,
       messagesByMonth,
       messagesByHour,

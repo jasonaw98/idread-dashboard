@@ -49,7 +49,7 @@ const Dashboard = async () => {
     hour: i,
     messages: messagesByHour[i] || 0,
   }));
-  
+
   return (
     <main className="flex-1 p-8 overflow-auto">
       <header className="flex justify-between items-center mb-8">
@@ -66,7 +66,11 @@ const Dashboard = async () => {
             <MessageSquare className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">{totalMessages}</div>
+            {totalMessages !== null ? (
+              <div className="text-2xl font-bold">{totalMessages}</div>
+            ) : (
+              <div className="h-6 w-40 animate-pulse bg-gray-200 rounded-full" />
+            )}
           </CardContent>
         </Card>
         <Card>
@@ -75,7 +79,11 @@ const Dashboard = async () => {
             <Users className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">{uniqueUsers}</div>
+            {uniqueUsers !== null ? (
+              <div className="text-2xl font-bold">{uniqueUsers}</div>
+            ) : (
+              <div className="h-6 w-40 animate-pulse bg-gray-200 rounded-full" />
+            )}
           </CardContent>
         </Card>
         <Card>
@@ -99,7 +107,11 @@ const Dashboard = async () => {
             <CardDescription>Number of messages over time</CardDescription>
           </CardHeader>
           <CardContent className="h-[300px]">
-            <RealtimeMonthChartClient chartData={chartData} />
+            {chartData.length > 0 ? (
+              <RealtimeMonthChartClient chartData={chartData} />
+            ) : (
+              <div className="h-full animate-pulse bg-gray-200 rounded-lg" />
+            )}
           </CardContent>
         </Card>
         <Card>
@@ -108,7 +120,11 @@ const Dashboard = async () => {
             <CardDescription>Active session time</CardDescription>
           </CardHeader>
           <CardContent className="h-[300px]">
-            <RealtimeHourChartClient chartData={hourChartData} />
+            {hourChartData.length > 0 ? (
+              <RealtimeHourChartClient chartData={hourChartData} />
+            ) : (
+              <div className="h-full animate-pulse bg-gray-200 rounded-lg" />
+            )}
           </CardContent>
         </Card>
       </div>
@@ -139,9 +155,9 @@ const Dashboard = async () => {
                   <th className="text-left font-semibold">Messages</th>
                 </tr>
               </thead>
-              <tbody>
-                {users &&
-                  users.slice(0, 10).map((user, index) => (
+              {users ? (
+                <tbody>
+                  {users.slice(0, 10).map((user, index) => (
                     <tr key={index} className="border-t">
                       <td className="py-2">
                         {user.key.toString().slice(0, 5) + "*****"}
@@ -152,7 +168,44 @@ const Dashboard = async () => {
                       <td className="py-2">{user.value}</td>
                     </tr>
                   ))}
-              </tbody>
+                </tbody>
+              ) : (
+                <tbody>
+                  <tr>
+                    <td>
+                      <div className="h-4 w-40 animate-pulse bg-gray-200 rounded-full"></div>
+                    </td>
+                    <td>
+                      <div className="h-4 w-40 animate-pulse bg-gray-200 rounded-full"></div>
+                    </td>
+                    <td>
+                      <div className="h-4 w-40 animate-pulse bg-gray-200 rounded-full"></div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div className="h-4 w-40 animate-pulse bg-gray-200 rounded-full"></div>
+                    </td>
+                    <td>
+                      <div className="h-4 w-40 animate-pulse bg-gray-200 rounded-full"></div>
+                    </td>
+                    <td>
+                      <div className="h-4 w-40 animate-pulse bg-gray-200 rounded-full"></div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div className="h-4 w-40 animate-pulse bg-gray-200 rounded-full"></div>
+                    </td>
+                    <td>
+                      <div className="h-4 w-40 animate-pulse bg-gray-200 rounded-full"></div>
+                    </td>
+                    <td>
+                      <div className="h-4 w-40 animate-pulse bg-gray-200 rounded-full"></div>
+                    </td>
+                  </tr>
+                </tbody>
+              )}
             </table>
           </CardContent>
         </Card>

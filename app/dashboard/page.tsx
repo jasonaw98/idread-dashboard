@@ -23,10 +23,6 @@ const page = () => {
         <TabsContent value="users" className="w-full h-full">
           <UserTable />
         </TabsContent>
-
-        <TabsContent value="archives" className="w-full h-full">
-          <OldMessages />
-        </TabsContent>
       </div>
     </div>
   );

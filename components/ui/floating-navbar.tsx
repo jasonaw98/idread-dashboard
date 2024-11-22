@@ -106,6 +106,7 @@ export const FloatingNav = ({
               target="_blank"
               className="hover:underline"
               data-umami-event="Dashboard button"
+              prefetch
             >
               Digital Twin
             </Link>

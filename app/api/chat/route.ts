@@ -20,25 +20,16 @@ export async function POST(req: Request) {
 
     const responseData = await zygyResponse.json();
 
-    // Create a ReadableStream for streaming the response
-    const stream = new ReadableStream({
-      start(controller) {
-        controller.enqueue(JSON.stringify({
-          message: responseData.answer,
-          status: "success"
-        }));
-        controller.close();
-      },
+    return NextResponse.json({
+      message: responseData.answer,
+      status: "success"
     });
 
-    return new Response(stream, {
-      headers: {
-        'Content-Type': 'application/json',
-        'Transfer-Encoding': 'chunked',
-      },
-    });
   } catch (error) {
-    console.error("Error in chat API:", error);
-    return NextResponse.json({ message: "Internal Server Error", status: 500 }, { status: 500 });
+    console.error('Error in chat API:', error);
+    return NextResponse.json(
+      { error: 'Failed to process chat request' },
+      { status: 500 }
+    );
   }
 }

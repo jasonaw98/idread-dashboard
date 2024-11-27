@@ -6,6 +6,7 @@ import Aida from "./page/Aida";
 import Scraping from "./page/Scraping";
 import Faq from "./page/Faq";
 import { TimelineDemo } from "./page/Timeline";
+import Demo from "./page/Demo";
 
 const navItems = [
   {
@@ -14,13 +15,18 @@ const navItems = [
     // icon: <Homesvg/>
   },
   {
-    name: "Ministries",
-    link: "#ministries",
+    name: "Timeline",
+    link: "#timeline",
     // icon: <Projectsvg/>
   },
   {
-    name: "Timeline",
-    link: "#timeline",
+    name: "Demo",
+    link: "#demo",
+    // icon: <Projectsvg/>
+  },
+  {
+    name: "Ministries",
+    link: "#ministries",
     // icon: <Projectsvg/>
   },
   {
@@ -42,6 +48,7 @@ const LandingPage = async () => {
       <Hero />
       <Aida/>
       <KeyFeatures/>
+      <Demo/>
       <TimelineDemo/>
       <Scraping/>
       <Faq/>

@@ -38,9 +38,13 @@ const navItems = [
 ];
 
 const LandingPage = async () => {
-  const user = await currentUser();
-  const { orgId } = auth();
-  const isAdmin = user && (orgId === process.env.NEXT_ORGID_DEMO || orgId === process.env.NEXT_ORGID_INTERNAL);
+  const [user, { orgId }] = await Promise.all([
+    currentUser(),
+    auth()
+  ]);
+  
+  let isAdmin = false;
+  if (user) isAdmin = user && (orgId === process.env.NEXT_ORGID_DEMO || orgId === process.env.NEXT_ORGID_INTERNAL);
 
   return (
     <div className="flex flex-col items-center h-screen w-full text-center">

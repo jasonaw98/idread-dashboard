@@ -54,7 +54,7 @@ export async function whatsappStats() {
   const supabase = createClient();
   const { data, error, count } = await (await supabase)
     .from("whatsapp")
-    .select("*", { count: 'exact'});
+    .select("*", { count: "exact" });
 
   if (error) {
     console.error("Error fetching data:", error);
@@ -99,6 +99,41 @@ export async function whatsappStats() {
       messagesByHour,
     };
   }
+}
+
+export async function processChartData(stats: any) {
+  const currentDate = new Date();
+  const currentMonthIndex = currentDate.getMonth();
+  const monthNames = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+
+  const chartData = [];
+  for (let i = 0; i < 5; i++) {
+    const monthIndex = (currentMonthIndex - i + 12) % 12;
+    chartData.unshift({
+      month: monthNames[monthIndex],
+      messages: stats.messagesByMonth[monthNames[monthIndex]] || 0,
+    });
+  }
+
+  const hourChartData = Array.from({ length: 24 }, (_, i) => ({
+    hour: i,
+    messages: stats.messagesByHour[i] || 0,
+  }));
+
+  return { chartData, hourChartData };
 }
 
 export async function chatbot(message: string) {

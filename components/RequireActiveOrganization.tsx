@@ -2,8 +2,8 @@ import { OrganizationList } from "@clerk/nextjs";
 import { auth } from "@clerk/nextjs/server";
 import { PropsWithChildren } from "react";
 
-export const RequireActiveOrganization = async (props: PropsWithChildren) => {
-  const { orgId } = await auth();
+export const RequireActiveOrganization = (props: PropsWithChildren) => {
+  const { orgId } = auth();
 
   if (orgId === process.env.NEXT_ORGID_DEMO || orgId === process.env.NEXT_ORGID_INTERNAL) {
     return props.children;

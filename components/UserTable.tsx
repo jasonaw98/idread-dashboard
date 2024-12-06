@@ -4,7 +4,7 @@ import { auth } from "@clerk/nextjs/server";
 export default async function UserTable() {
   const stats = await whatsappStats();
   const users = stats?.recipientMessageCountArray || [];
-  const { orgRole } = auth();
+  const { orgRole } = await auth();
   const isAdmin = orgRole === process.env.NEXT_ISADMIN;
 
   return (

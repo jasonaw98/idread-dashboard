@@ -39,13 +39,13 @@
   },
   "devDependencies": {
     "typescript": "^5.7.2",
-    "@types/node": "^20.17.9",
+    "@types/node": "^22.10.1",
     "@types/react": "^19.0.1",
     "@types/react-dom": "^19.0.1",
     "postcss": "^8.4.49",
     "tailwindcss": "^3.4.16"
   },
   "overrides": {
-    "react-is": "^19.0.0"
+    "react-is": "^19.0.0-rc-69d4b800-20241021"
   }
 }

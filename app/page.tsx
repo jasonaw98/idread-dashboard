@@ -1,7 +1,7 @@
 import AIChatBot from "@/components/AIchat";
 import LandingPage from "@/components/LandingPage";
 
-export default async function Home() {
+export default function Home() {
   return (
     <main className="h-screen">
       <LandingPage />

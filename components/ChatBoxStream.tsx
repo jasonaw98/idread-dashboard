@@ -19,7 +19,7 @@ interface Message {
   content: string;
 }
 
-const ChatBox = () => {
+const ChatBoxStream = () => {
   const [input, setInput] = useState("");
   const [messages, setMessages] = useState<Message[]>([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -39,20 +39,23 @@ const ChatBox = () => {
     setIsLoading(true);
 
     try {
-      const response = await fetch("/api/chat", {
+      const gpturl = process.env.NEXT_ZYGY_STRREAM_URL!;
+      const response = await fetch(gpturl, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ message: input }),
+        body: JSON.stringify({
+          querySearch: input.toLowerCase(),
+          serviceAccount: "gov",
+        }),
       });
 
       if (!response.ok) {
         throw new Error("Failed to fetch response");
       }
 
-      const data = await response.json();
-
+      const reader = response.body?.getReader();
       // Initialize an empty assistant message
       const initialMessage: Message = {
         role: "assistant",
@@ -60,20 +63,6 @@ const ChatBox = () => {
       };
       setMessages((prev) => [...prev, initialMessage]);
 
-      const encoder = new TextEncoder();
-      const stream = new ReadableStream({
-        async start(controller) {
-          const words = data.message.split(" ");
-          for (const word of words) {
-            const chunk = encoder.encode(word + " ");
-            controller.enqueue(chunk);
-            await new Promise((resolve) => setTimeout(resolve, 100));
-          }
-          controller.close();
-        },
-      });
-
-      const reader = stream.getReader();
       if (!reader) {
         throw new Error("No reader available");
       }
@@ -88,6 +77,7 @@ const ChatBox = () => {
         const chunk = new TextDecoder().decode(value);
         accumulatedText += chunk;
 
+        await new Promise(resolve => setTimeout(resolve, 300))
         // Update the last message with accumulated text
         setMessages((prev) => {
           const newMessages = [...prev];
@@ -113,7 +103,7 @@ const ChatBox = () => {
 
   return (
     <div className="flex w-full items-center justify-center max-w-4xl">
-      <Card className="w-full bg-gray-900 shadow-inner shadow-white/30 border border-white/[0.2]">
+      <Card className="w-full bg-gray-900 shadow-inner shadow-white/30 border-white/[0.2]">
         <CardHeader className="items-start">
           <CardTitle className="text-white justify-between flex w-full">
             AIDA
@@ -236,4 +226,4 @@ const ChatBox = () => {
   );
 };
 
-export default ChatBox;
+export default ChatBoxStream;

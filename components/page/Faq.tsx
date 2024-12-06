@@ -12,8 +12,8 @@ const faq = [
       "Yes. Just click on the Whatsapp button and start your conversation via Whatsapp.",
   },
   {
-    question: "Does this support Malay language?",
-    answer: "Yes. Currently it's the default language.",
+    question: "Does this support Multiple languages?",
+    answer: "Yes it currently supports the main four languages in Malaysia. Which are Malay, Tamil, Mandarin and English.",
   },
   {
     question: "Can I book or make an appointment through AIDA?",

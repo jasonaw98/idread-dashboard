@@ -1,4 +1,4 @@
-import { auth, currentUser } from "@clerk/nextjs/server";
+import { auth } from "@clerk/nextjs/server";
 import { Hero } from "./page/Hero";
 import { FloatingNav } from "./ui/floating-navbar";
 import KeyFeatures from "./page/KeyFeatures";
@@ -15,13 +15,13 @@ const navItems = [
     // icon: <Homesvg/>
   },
   {
-    name: "Timeline",
-    link: "#timeline",
+    name: "Demo",
+    link: "#demo",
     // icon: <Projectsvg/>
   },
   {
-    name: "Demo",
-    link: "#demo",
+    name: "Timeline",
+    link: "#timeline",
     // icon: <Projectsvg/>
   },
   {
@@ -38,13 +38,10 @@ const navItems = [
 ];
 
 const LandingPage = async () => {
-  const [user, { orgId }] = await Promise.all([
-    currentUser(),
-    auth()
-  ]);
+  const {userId, orgId} = await auth();
   
   let isAdmin = false;
-  if (user) isAdmin = user && (orgId === process.env.NEXT_ORGID_DEMO || orgId === process.env.NEXT_ORGID_INTERNAL);
+  if (userId) isAdmin = true && (orgId === process.env.NEXT_ORGID_DEMO || orgId === process.env.NEXT_ORGID_INTERNAL);
 
   return (
     <div className="flex flex-col items-center h-screen w-full text-center">

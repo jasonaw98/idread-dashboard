@@ -1,11 +1,9 @@
-import { chatbot } from "@/app/actions/actions";
 import ChatBox from "../ChatBox";
 
-const Demo = async () => {
-  const chat = await chatbot("hello");
+const Demo = () => {
   return (
     <div className="flex flex-col w-full items-center md:p-24" id="demo">
-      <div className="flex flex-col items-center text-center gap-4">
+      <div className="flex flex-col items-center text-center gap-4 mb-16">
         <span className="text-blue-500 font-extrabold text-lg">
           Experience our Chatbot
         </span>

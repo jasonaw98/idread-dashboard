@@ -18471,7 +18471,7 @@ export const mouData = [
     date: "25 Sept 2024",
   },
   { name: "KEMENTERIAN LUAR NEGERI (KLN)", scrape: true, date: "27 Sept 2024" },
-  { name: "JABATAN PERDANA MENTERI (JPM)", scrape: null, date: "30 Sept 2024" },
+  { name: "JABATAN PERDANA MENTERI (JPM)", scrape: true, date: "30 Sept 2024" },
   {
     name: "KEMENTERIAN PELANCONGAN, SENI DAN BUDAYA (MOTAC)",
     scrape: true,

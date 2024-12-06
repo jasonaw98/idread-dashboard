@@ -19,7 +19,7 @@ interface Message {
   content: string;
 }
 
-const ChatBox = () => {
+const ChatBoxGradio = () => {
   const [input, setInput] = useState("");
   const [messages, setMessages] = useState<Message[]>([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -39,7 +39,7 @@ const ChatBox = () => {
     setIsLoading(true);
 
     try {
-      const response = await fetch("/api/chat", {
+      const response = await fetch("/api/gradio", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -63,7 +63,7 @@ const ChatBox = () => {
       const encoder = new TextEncoder();
       const stream = new ReadableStream({
         async start(controller) {
-          const words = data.message.split(" ");
+          const words = data.data[0].split(" ");
           for (const word of words) {
             const chunk = encoder.encode(word + " ");
             controller.enqueue(chunk);
@@ -101,7 +101,6 @@ const ChatBox = () => {
       setIsLoading(false);
     } catch (error) {
       console.error("Error:", error);
-      // Add error message
       const errorMessage: Message = {
         role: "assistant",
         content: "Sorry, I encountered an error while processing your request.",
@@ -236,4 +235,4 @@ const ChatBox = () => {
   );
 };
 
-export default ChatBox;
+export default ChatBoxGradio;

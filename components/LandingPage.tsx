@@ -38,21 +38,22 @@ const navItems = [
 ];
 
 const LandingPage = async () => {
-  const {userId, orgId} = await auth();
-  
-  let isAdmin = false;
-  if (userId) isAdmin = true && (orgId === process.env.NEXT_ORGID_DEMO || orgId === process.env.NEXT_ORGID_INTERNAL);
+  const { orgId } = await auth();
+
+  const isAdmin =
+    orgId === process.env.NEXT_ORGID_DEMO ||
+    orgId === process.env.NEXT_ORGID_INTERNAL;
 
   return (
     <div className="flex flex-col items-center h-screen w-full text-center">
-      <FloatingNav navItems={navItems} member={isAdmin}/>
+      <FloatingNav navItems={navItems} member={isAdmin} />
       <Hero />
-      <Aida/>
-      <KeyFeatures/>
-      <Demo/>
-      <TimelineDemo/>
-      <Scraping/>
-      <Faq/>
+      <Aida />
+      <KeyFeatures />
+      <Demo />
+      <TimelineDemo />
+      <Scraping />
+      <Faq />
 
       <footer className="text-white py-8 w-full mt-8">
         <div className="container mx-auto px-4">

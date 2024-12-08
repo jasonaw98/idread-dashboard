@@ -6,6 +6,9 @@ import UserTable from "@/components/UserTable";
 import { TabsContent } from "@radix-ui/react-tabs";
 import React, { Suspense } from "react";
 
+// Revalidate page every 60 seconds
+export const revalidate = 60;
+
 const page = () => {
   return (
     <div className="min-h-screen w-full">

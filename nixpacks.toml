@@ -1,5 +1,6 @@
 [phases.setup]
 aptPkgs = ['unzip']
+nixPkgs = ['nodejs_22', 'bun']
 
 [phases.install]
 cmds = ['curl -fsSL https://bun.sh/install | bash', 'bun install']

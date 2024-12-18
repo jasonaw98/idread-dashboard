@@ -39,14 +39,13 @@ const ChatBoxStream = () => {
     setIsLoading(true);
 
     try {
-      const gpturl = process.env.NEXT_ZYGY_STRREAM_URL!;
-      const response = await fetch(gpturl, {
+      const response = await fetch("https://llm.zygy.com/stream-api/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          querySearch: input.toLowerCase(),
+          querySearch: input,
           serviceAccount: "gov",
         }),
       });

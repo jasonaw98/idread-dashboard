@@ -39,19 +39,22 @@ const ChatBox = () => {
     setIsLoading(true);
 
     try {
-      const response = await fetch("/api/chat", {
+      const response = await fetch(process.env.NEXT_PUBLIC_ZYGY_STRREAM_URL!, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ message: input }),
+        body: JSON.stringify({
+          querySearch: input,
+          serviceAccount: "gov",
+        }),
       });
 
       if (!response.ok) {
         throw new Error("Failed to fetch response");
       }
 
-      const data = await response.json();
+      const reader = response.body?.getReader();
 
       // Initialize an empty assistant message
       const initialMessage: Message = {
@@ -60,20 +63,6 @@ const ChatBox = () => {
       };
       setMessages((prev) => [...prev, initialMessage]);
 
-      const encoder = new TextEncoder();
-      const stream = new ReadableStream({
-        async start(controller) {
-          const words = data.message.split(" ");
-          for (const word of words) {
-            const chunk = encoder.encode(word + " ");
-            controller.enqueue(chunk);
-            await new Promise((resolve) => setTimeout(resolve, 100));
-          }
-          controller.close();
-        },
-      });
-
-      const reader = stream.getReader();
       if (!reader) {
         throw new Error("No reader available");
       }
@@ -133,11 +122,10 @@ const ChatBox = () => {
                 className={`mb-4 font-semibold ${
                   message.role === "user"
                     ? "text-blue-400 flex justify-end"
-                    : "text-neutral-300"
+                    : "text-neutral-300 text-left max-w-[80%] flex justify-start"
                 }`}
               >
                 <div className="flex flex-col w-full">
-                  <strong>{message.role === "user" ? null : "AIDA: "}</strong>
                   {message.role === "user" ? (
                     <span className="flex justify-end">
                       You: {message.content}
